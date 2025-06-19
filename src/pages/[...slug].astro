@@ -6,7 +6,8 @@ import { render } from 'astro:content';
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
 	return posts.map((post) => ({
-		params: { slug: `blog/${post.id}` },
+		// yeah i know this destroys local dev, shut up. just change /blog/blog to /blog and stop complaining
+		params: { slug: `blog/blog/${post.id}` },
 		props: post,
 	}));
 }
