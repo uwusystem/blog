@@ -6,7 +6,9 @@ import { render } from 'astro:content';
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
 	return posts.map((post) => ({
-		// yeah i know this destroys local dev, shut up. just change /blog/blog to /blog and stop complaining
+		// yeah i know this destroys local dev, shut up. just change blog/blog/ to blog/ and stop complaining
+		// if you make a pr about this i will kill you
+		// from xamyl :)
 		params: { slug: `blog/blog/${post.id}` },
 		props: post,
 	}));
